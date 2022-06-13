@@ -36,12 +36,10 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
 
       customerId = stripeCustomer.id;
     }
-<<<<<<< HEAD
+
     console.log(process.env.STRIPE_SUCCESS_URL)
     console.log(process.env.STRIPE_CANCEL_URL)
-=======
 
->>>>>>> d4a2df9f66ec3d3417ab9a6e75cf69111be87294
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
       customer: customerId,
       payment_method_types: ["card"],
