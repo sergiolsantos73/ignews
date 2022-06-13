@@ -14,9 +14,9 @@ export default NextAuth({
       authorization: {
         params: {
           scope: "read:user",
-        },
-      },
-    }),
+        }
+      }
+    })
   ],
   callbacks: {
     async session({ session }) {
