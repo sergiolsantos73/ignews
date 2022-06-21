@@ -13,7 +13,8 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "read:user",
+          // scope: "read:user",
+          scope: "openid your_custom_scope"
         }
       }
     })
@@ -56,7 +57,7 @@ export default NextAuth({
       }
     },
     // async signIn({ user, account, profile }) {
-      async signIn({ user }) {
+    async signIn({ user }) {
       const { email } = user;
       try {
         await fauna.query(
