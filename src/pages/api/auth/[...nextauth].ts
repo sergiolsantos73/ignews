@@ -75,7 +75,7 @@ export default NextAuth({
       //   );      
         //  return true;
 
-        try {
+
           await fauna.query(q.Create(q.Collection("users"), { data: email }));
   
           return true;
