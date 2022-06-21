@@ -57,7 +57,7 @@ export default NextAuth({
     },
     async signIn({ user, account, profile }) {
       const { email } = user;
-      // try {
+      try {
       //   await fauna.query(
       //     q.If(
       //       q.Not(
@@ -72,12 +72,18 @@ export default NextAuth({
       //         q.Casefold(user.email))
       //       )
       //     )
-      //   );
-         return true;
-      // } catch (error){
-      //   console.log(error);
-      //   return false;
-      // }
+      //   );      
+        //  return true;
+
+        try {
+          await fauna.query(q.Create(q.Collection("users"), { data: email }));
+  
+          return true;
+        
+      } catch (error){
+        alert(error);
+        return false;
+      }
     }
   }
 });
