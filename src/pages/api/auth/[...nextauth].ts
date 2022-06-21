@@ -75,7 +75,7 @@ export default NextAuth({
         );
         return true;
       } catch (error){
-        alert(error);
+        // console.log(error);
         return false;
       }
     }
