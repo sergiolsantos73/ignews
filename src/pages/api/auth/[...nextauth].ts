@@ -60,7 +60,7 @@ export default NextAuth({
     },
     async signIn({ user: User, account: Account, profile: Profile }) {
     //async signIn({ user, account, profile }) {
-      console.log('usuario: '+User.toString());
+      console.log('usuario: '+JSON.stringify(User));
     // async signIn({ user }) {
       const { email } = User;
       try {
