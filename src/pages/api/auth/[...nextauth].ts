@@ -21,7 +21,7 @@ export default NextAuth({
   ],
   callbacks: {
     async session({ session }) {
-      console.log('sessao: '+session)
+      console.log('sessao: '+session.toString())
       try {
         const userActiveSubscription = await fauna.query(
           q.Get(
@@ -60,7 +60,7 @@ export default NextAuth({
     },
     async signIn({ user: User, account: Account, profile: Profile }) {
     //async signIn({ user, account, profile }) {
-      console.log('usuario: '+User);
+      console.log('usuario: '+User.toString());
     // async signIn({ user }) {
       const { email } = User;
       try {
@@ -82,6 +82,7 @@ export default NextAuth({
         return true;
       } catch (error){
         console.log('erro usuario: '+error);
+        console.log(error);
         return false;
       }
     }
