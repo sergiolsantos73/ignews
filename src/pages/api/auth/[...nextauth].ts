@@ -55,7 +55,7 @@ export default NextAuth({
         console.log(error);
         return {
           ...session,
-          activeSubscription: null,
+          //activeSubscription: null,
         };
       }
     },
