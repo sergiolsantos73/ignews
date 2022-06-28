@@ -53,9 +53,10 @@ export default NextAuth({
       } catch (error){
         console.log('erro sessao: ');
         console.log(error);
+        console.log(JSON.stringify(error));
         return {
           ...session,
-          //activeSubscription: null,
+          activeSubscription: null,
         };
       }
     },
