@@ -37,8 +37,8 @@ const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
       customerId = stripeCustomer.id;
     }
 
-    console.log(process.env.STRIPE_SUCCESS_URL)
-    console.log(process.env.STRIPE_CANCEL_URL)
+    // console.log(process.env.STRIPE_SUCCESS_URL)
+    // console.log(process.env.STRIPE_CANCEL_URL)
 
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
       customer: customerId,

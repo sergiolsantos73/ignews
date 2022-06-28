@@ -27,6 +27,9 @@ const relevantEvents = new Set([
 ]);
 
 const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
+
+  console.log('webhooks >>>')
+
   if (req.method === "POST") {
     const buf = await buffer(req);
     const secret = req.headers["stripe-signature"];
@@ -40,6 +43,8 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
         process.env.STRIPE_WEBHOOK_SECRET
       );
     } catch (error) {
+      console.log('post error >>>');
+      console.log(error);
       return res.status(400).send(`Webhook error: ${error.message}`);
     }
 
@@ -75,7 +80,8 @@ const webhooks = async (req: NextApiRequest, res: NextApiResponse) => {
             throw new Error("Unhandle event.");
         }
       } catch (error) {
-        console.log(error)
+        console.log('handler >>>');
+        console.log(error);
         return res.json({ error: "Webhook handler failed." });
       }
     }
